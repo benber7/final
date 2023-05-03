@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/style.css" rel="stylesheet" type="text/css">
+    <title>Informasjon</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/info" class="active">Personvern og GDPR</a></li>
+            <li>
+                <form id="search-form" action="/search" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="GDPR">
+        <h2>
+            Velkommen til vår informasjonsside om personvern og GDPR. 
+            Denne siden gir deg informasjon om rettighetene og pliktene dine når du bruker nettsiden vår.
+        </h2>
+
+        <p>
+            Personvern er viktig for oss, og vi tar det svært alvorlig. 
+            Vi ønsker å sikre at alle som bruker nettsiden vår er informert om hvordan vi samler inn, bruker og beskytter personopplysningene deres. 
+            GDPR (General Data Protection Regulation) er en lov som ble innført av EU for å beskytte personvernet til EU-borgere. 
+            Loven har også blitt innført i Norge gjennom personvernforordningen (lov om behandling av personopplysninger). 
+            Som bruker av nettsiden vår har du rettigheter og plikter når det gjelder personvern og GDPR.
+        </p>
+        <ul>
+            <h3>
+                Her er noen av de viktigste punktene du bør være oppmerksom på:
+            </h3>
+
+            <li>
+                <p>
+                    Samtykke: Når du gir oss personopplysninger, må du gi oss ditt samtykke til å bruke disse opplysningene i tråd med våre personvernregler.
+                </p>  
+            </li>
+            <li>
+                <p>
+                    Innsynsrett: Du har rett til å be om innsyn i personopplysningene vi har om deg.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Rett til å bli glemt: Du har rett til å be om at personopplysningene dine blir slettet fra vår database.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Informasjonssikkerhet: Vi tar sikkerheten til personopplysningene dine svært alvorlig og tar alle nødvendige tiltak for å beskytte dem.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Tredjeparter: Vi vil aldri dele personopplysningene dine med tredjeparter uten ditt samtykke.
+                </p>
+            </li>
+        </ul>
+        
+        <p2 style="font-weight: bold;">
+            Vi håper at denne informasjonen har vært nyttig for deg, og vi ønsker å forsikre deg om at vi tar personvern og GDPR alvorlig. 
+            Hvis du har spørsmål eller bekymringer og eller har lyst til å gi tilbake melding, kan du kontakte oss via kontaktskjemaet, chat på nettsiden vår eller med å ta denne <a href="https://forms.gle/UWR63Qa2jz3beWGK8">undersøkelsen.</a>
+        </p2>
+    </div>
+</body>
+<script>
+    const searchForm = document.querySelector('form[action="/search"]');
+    const contentSections = document.querySelectorAll('h2, p');
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+      
+        const query = document.querySelector('input[name="query"]').value.toLowerCase();
+      
+        for (const section of contentSections) {
+            const text = section.textContent.toLowerCase();
+            if (text.includes(query)) {
+                section.scrollIntoView({behavior: 'smooth', block: 'start'});
+                break;
+            }
+        }
+    });
+</script>
+
+</html>
